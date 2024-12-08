@@ -4,14 +4,19 @@ import { apiFetch } from "../../utils/api";
 const initialState = {
   user: [],
   isLoading: false,
-  error: null,
+  error: false,
 };
 
 export const authRegister = createAsyncThunk(
   "auth/register",
   async (data: any) => {
-    const response = await apiFetch.post("/registration", data);
-    return response;
+    try {
+      const response = await apiFetch.post("/registration", data);
+      
+      return response;
+    } catch (error) {
+      return error;
+    }
   }
 );
 
@@ -23,16 +28,21 @@ const registerSlice = createSlice({
     builder
       .addCase(authRegister.pending, (state: any) => {
         state.isLoading = true;
-        state.error = null;
+        state.error = false;
       })
       .addCase(authRegister.fulfilled, (state: any, action: any) => {
+        if (action.payload.status === 200) {
+          state.error = false;
+        } else {
+          state.error = true;
+        }
         state.isLoading = false;
         state.user = action.payload.data;
       })
       .addCase(authRegister.rejected, (state: any, action: any) => {
         state.isLoading = false;
         state.isAuthenticated = false;
-        state.error = action.error.message;
+        state.error = true;
       });
   },
 });

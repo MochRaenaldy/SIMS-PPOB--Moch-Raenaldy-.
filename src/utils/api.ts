@@ -18,14 +18,14 @@ export const setAuthToken = (token: string | null) => {
   console.log(token);
   if (token) {
     apiFetch.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    const dataToken = decodeJwt(token);
-    localStorage.setItem("user", JSON.stringify(dataToken));
+    // const dataToken = decodeJwt(token);
+    // localStorage.setItem("user", JSON.stringify(dataToken));
     localStorage.setItem("token", token);
   } else {
     delete apiFetch.defaults.headers.common["Authorization"];
     localStorage.clear();
-    setTimeout(() => {
-      // window.location.replace("/auth/login");
-    }, 2000);
+    window.location.replace("/login");
   }
+
+  
 };

@@ -1,11 +1,12 @@
 import { RouteObject } from "react-router-dom";
 import RootLayout from "../layout/RootLayout";
-import Home from "../pages/Home";
-import RegisterPage from "@/pages/RegisterPage";
-import LoginPage from "@/pages/LoginPage";
-import ProfilePage from "@/pages/ProfilePage";
-import TransactionPage from "@/pages/TransactionPage";
-import EditPage from "@/pages/EditPage";
+import Home from "@/pages/Home";
+import RegisterPage from "@/pages/Register";
+import LoginPage from "@/pages/Login";
+import ProfilePage from "@/pages/Profile";
+import TransactionPage from "@/pages/Transaction";
+import TopupPage from "@/pages/TopupPage";
+import PaymentPage from "@/pages/Payment";
 
 const route: RouteObject[] = [
   {
@@ -25,6 +26,10 @@ const route: RouteObject[] = [
         element: <LoginPage />,
       },
       {
+        path: "/topup",
+        element: <TopupPage />,
+      },
+      {
         path: "/transaction",
         element: <TransactionPage />,
       },
@@ -33,9 +38,9 @@ const route: RouteObject[] = [
         element: <ProfilePage />,
       },
       {
-        path: "/editProfile",
-        element: <EditPage />,
-      },
+        path: "/payment",
+        element: <PaymentPage />,
+      }
     ],
   },
 ];

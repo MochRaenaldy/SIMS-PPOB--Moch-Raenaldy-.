@@ -31,7 +31,7 @@ export const serviceSlice = createSlice({
       })
       .addCase(serviceFetch.fulfilled, (state: IService, action: any) => {
         state.isLoading = false;
-        state.services = action.payload.data;
+        state.services = action?.payload?.data?.data;
       })
       .addCase(serviceFetch.rejected, (state: IService, action: any) => {
         state.isLoading = false;

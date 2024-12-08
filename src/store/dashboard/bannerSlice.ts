@@ -29,8 +29,9 @@ export const bannerSlice = createSlice({
         state.error = null;
       })
       .addCase(bannerFetch.fulfilled, (state: Ibanner, action: any) => {
+        console.log(action)
         state.isLoading = false;
-        state.banner = action.payload.data;
+        state.banner = action?.payload?.data?.data;
       })
       .addCase(bannerFetch.rejected, (state: Ibanner, action: any) => {
         state.isLoading = false;

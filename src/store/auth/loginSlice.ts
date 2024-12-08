@@ -5,20 +5,23 @@ export interface ILogin {
   token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: ILogin = {
   token: null,
   isAuthenticated: false,
   isLoading: false,
-  error: null,
+  error: false,
 };
 
 export const authLogin = createAsyncThunk("/login", async (data: any) => {
-  const response = await apiFetch.post("/login", data);
-  console.log(response);
-  return response;
+  try {
+    const response = await apiFetch.post("/login", data);
+    return response;
+  } catch (error) {
+    return error;
+  }
 });
 
 const loginSlice = createSlice({
@@ -29,18 +32,26 @@ const loginSlice = createSlice({
     builder
       .addCase(authLogin.pending, (state: ILogin) => {
         state.isLoading = true;
-        state.error = null;
+        state.error = false;
       })
       .addCase(authLogin.fulfilled, (state: ILogin, action: any) => {
-        console.log(action);
+       if (action.payload.status === 200) {
+         state.error = false;
+         state.isAuthenticated = true;
+         state.token = action.payload?.data?.data?.token;
+       } else {
+         state.error = true;
+         state.isAuthenticated = false;
+         state.token = null;
+       }
         state.isLoading = false;
-        state.isAuthenticated = true;
-        state.token = action.payload?.data?.token;
+        
+        
       })
       .addCase(authLogin.rejected, (state: ILogin, action: any) => {
         state.isLoading = false;
         state.isAuthenticated = false;
-        state.error = action.error.message;
+        state.error = true;
       });
   },
 });

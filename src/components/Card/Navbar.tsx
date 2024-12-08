@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   return (
@@ -14,7 +14,7 @@ const Navbar = () => {
       </ul>
       <ul className="ml-auto flex gap-4 hover:cursor-pointer ">
         <li className="hover:text-red-500">
-          <a href="#news">Top up</a>
+          <a href="/topup">Top up</a>
         </li>
         <li className="hover:text-red-500">
           <a href="/transaction">Transaction</a>

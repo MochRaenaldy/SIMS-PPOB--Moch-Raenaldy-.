@@ -4,6 +4,13 @@ import registerSlice from "./auth/registerSlice";
 import { useDispatch, useSelector } from "react-redux";
 import bannerSlice from "./dashboard/bannerSlice";
 import serviceSlice from "./dashboard/sevicesSlice";
+import balanceSlice from "./dashboard/balanceSlice";
+import profileSlice from "./profile/profileSlice";
+import transactionSlice from "./transaction/transactionSlice";
+import profilUpdateSlice from "./profile/editProfileSlice";
+import UpdateImageSlice from "./profile/UploadImgProfilSlice";
+import topupSlice from "./topup/topupSlice";
+import paymentSlice from "./payment/paymentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +18,13 @@ export const store = configureStore({
     regisState: registerSlice,
     bannerState: bannerSlice,
     serviceState: serviceSlice,
+    balanceState: balanceSlice,
+    profileState: profileSlice,
+    transactionState: transactionSlice,
+    editProfileState: profilUpdateSlice,
+    uploadImageState: UpdateImageSlice,
+    topupState: topupSlice,
+    paymentState: paymentSlice,
   },
 });
 
