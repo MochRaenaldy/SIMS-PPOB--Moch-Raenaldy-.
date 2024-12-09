@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import bgsaldo from "@/assets/BgSaldo.png";
 import profileImage from "@/assets/Profile.png";
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { balanceFetch } from "@/store/dashboard/balanceSlice";
@@ -7,13 +6,11 @@ import { profileFetch } from "@/store/profile/profileSlice";
 
 const Dashboard = () => {
   const {
-    isLoading: isLoadingProfile,
-    error: errorProfile,
     profile,
   } = useAppSelector((state: RootState) => state.profileState);
   const [showSaldo, setShowSaldo] = useState(false);
   const dispatch = useAppDispatch();
-  const { isLoading, error, balance } = useAppSelector(
+  const { balance } = useAppSelector(
     (state: RootState) => state.balanceState
   );
 
