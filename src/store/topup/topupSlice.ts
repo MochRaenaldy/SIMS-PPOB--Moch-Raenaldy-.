@@ -41,7 +41,7 @@ export const topupSlice = createSlice({
         state.isLoading = false;
         state.topup = action?.payload?.data;
       })
-      .addCase(topupFetch.rejected, (state: ITopup, action: any) => {
+      .addCase(topupFetch.rejected, (state: ITopup) => {
         state.isLoading = false;
         state.error = true;
       });

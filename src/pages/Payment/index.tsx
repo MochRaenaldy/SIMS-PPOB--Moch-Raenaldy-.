@@ -9,9 +9,10 @@ const PaymentPage = () => {
   const getServices = localStorage.getItem("service");
   const services = getServices ? JSON.parse(getServices) : null;
   const dispatch = useAppDispatch();
-  const { isLoading, error, payment } = useAppSelector(
+  const {  error, payment } = useAppSelector(
     (state: RootState) => state.paymentState
   );
+  console.log(payment)
 
   const [message, setMessage] = useState("");
 

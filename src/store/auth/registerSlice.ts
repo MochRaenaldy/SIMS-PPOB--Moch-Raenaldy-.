@@ -39,7 +39,7 @@ const registerSlice = createSlice({
         state.isLoading = false;
         state.user = action.payload.data;
       })
-      .addCase(authRegister.rejected, (state: any, action: any) => {
+      .addCase(authRegister.rejected, (state: any) => {
         state.isLoading = false;
         state.isAuthenticated = false;
         state.error = true;

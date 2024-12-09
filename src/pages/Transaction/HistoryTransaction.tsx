@@ -1,10 +1,10 @@
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { transactionFetch } from "@/store/transaction/transactionSlice";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const HistoryTransaction = () => {
   const dispatch = useAppDispatch();
-  const { isLoading, error, transaction } = useAppSelector(
+  const { transaction } = useAppSelector(
     (state: RootState) => state.transactionState
   );
   const [limit, setLimit] = useState(5);

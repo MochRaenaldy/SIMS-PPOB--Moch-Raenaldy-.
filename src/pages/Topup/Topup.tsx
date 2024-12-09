@@ -1,14 +1,15 @@
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { topupFetch } from "@/store/topup/topupSlice";
-import React, { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Topup = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { isLoading, error, topup } = useAppSelector(
+  const {  error, topup } = useAppSelector(
     (state: RootState) => state.topupState
   );
+  console.log(topup)
   
   const [message, setMessage] = useState("");
   const [value, setValue] = useState<number>(0);

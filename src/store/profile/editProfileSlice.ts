@@ -42,7 +42,7 @@ export const profilUpdateSlice = createSlice({
         state.isLoading = false;
         state.profilUpdate = action?.payload?.data?.data;
       })
-      .addCase(profilUpdateFetch.rejected, (state: IProfilUpdate, action: any) => {
+      .addCase(profilUpdateFetch.rejected, (state: IProfilUpdate) => {
         state.isLoading = false;
         state.error = true;
       });

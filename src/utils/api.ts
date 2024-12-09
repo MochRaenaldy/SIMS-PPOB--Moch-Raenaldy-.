@@ -1,5 +1,4 @@
 import axios from "axios";
-import { decodeJwt } from ".";
 
 const tokenAuth = localStorage.getItem("token");
 

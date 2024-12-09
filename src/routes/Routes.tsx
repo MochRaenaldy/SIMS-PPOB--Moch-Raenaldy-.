@@ -5,7 +5,7 @@ import RegisterPage from "@/pages/Register";
 import LoginPage from "@/pages/Login";
 import ProfilePage from "@/pages/Profile";
 import TransactionPage from "@/pages/Transaction";
-import TopupPage from "@/pages/TopupPage";
+import TopupPage from "@/pages/Topup";
 import PaymentPage from "@/pages/Payment";
 
 const route: RouteObject[] = [

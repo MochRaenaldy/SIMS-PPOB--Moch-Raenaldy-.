@@ -5,7 +5,7 @@ import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { useEffect, useState } from "react";
 import { setAuthToken } from "@/utils/api";
 import * as yup from "yup";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { Controller,  useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IRegisterForm } from "@/types/register";
 import logo from "@/assets/logo.png";
@@ -13,7 +13,7 @@ import logo from "@/assets/logo.png";
 const Login = () => {
   const getToken = localStorage.getItem("token");
   const dispatch = useAppDispatch();
-  const { isLoading, error } = useAppSelector(
+  const {  error } = useAppSelector(
     (state: RootState) => state.regisState
   );
   const [message, setMessage] = useState("");
@@ -41,7 +41,6 @@ const Login = () => {
   const {
     handleSubmit,
     control,
-    reset,
     formState: { errors },
   } = useForm<IRegisterForm>({
     resolver: yupResolver(schema),

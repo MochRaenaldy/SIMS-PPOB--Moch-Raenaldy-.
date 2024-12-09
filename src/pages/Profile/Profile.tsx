@@ -1,17 +1,15 @@
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
-import profileImg from "@/assets/Profile.png";
 import { profileFetch } from "@/store/profile/profileSlice";
 import { useEffect, useState } from "react";
-import { UpdateImageFetch } from "@/store/profile/UploadImgProfilSlice";
 import { profilUpdateFetch } from "@/store/profile/editProfileSlice";
 import ProfilePhoto from "./ProfilePhoto";
 
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
-  const {  error, profile } = useAppSelector(
+  const { profile } = useAppSelector(
     (state: RootState) => state.profileState
   );
-  const { isLoading, error: errorUpdate, } = useAppSelector(
+  const {  error: errorUpdate, } = useAppSelector(
     (state: RootState) => state.editProfileState
   );
   const [enableEdit, setEnableEdit] = useState<boolean>(false);

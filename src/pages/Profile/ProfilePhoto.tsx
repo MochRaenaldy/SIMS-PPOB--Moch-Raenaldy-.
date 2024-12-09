@@ -8,7 +8,7 @@ interface IProfileData {
 }
 const ProfilePhoto = ({ profile_pic, refetch }: IProfileData) => {
   const dispatch = useAppDispatch();
-  const { isLoading, error, imageUpdate } = useAppSelector(
+  const {error } = useAppSelector(
     (state: RootState) => state.uploadImageState
   );
   const refImage: any = useRef(null);

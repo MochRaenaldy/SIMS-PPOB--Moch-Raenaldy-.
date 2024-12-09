@@ -1,12 +1,11 @@
-import Dashboard from "@/components/Card/Dashboard";
-import IconDashboard from "@/components/IconDashboard";
-import Navbar from "@/components/Card/Navbar";
+import IconDashboard from "@/pages/Home/IconDashboard";
+import Card from "@/components/Card";
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <Dashboard />
-      <IconDashboard />
+      <Card>
+        <IconDashboard />
+      </Card>
     </div>
   );
 };

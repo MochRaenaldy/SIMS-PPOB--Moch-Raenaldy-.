@@ -51,7 +51,7 @@ export const UpdateImageSlice = createSlice({
       )
       .addCase(
         UpdateImageFetch.rejected,
-        (state: IUploadImage, action: any) => {
+        (state: IUploadImage) => {
           state.isLoading = false;
           state.error = true;
         }

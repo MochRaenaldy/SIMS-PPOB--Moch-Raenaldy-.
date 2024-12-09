@@ -41,7 +41,7 @@ export const paymentSlice = createSlice({
         state.isLoading = false;
         state.payment = action?.payload?.data;
       })
-      .addCase(paymentFetch.rejected, (state: IPayment, action: any) => {
+      .addCase(paymentFetch.rejected, (state: IPayment) => {
         state.isLoading = false;
         state.error = true;
       });

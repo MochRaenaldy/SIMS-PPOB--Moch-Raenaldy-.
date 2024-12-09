@@ -13,15 +13,10 @@ import { Controller, useForm } from "react-hook-form";
 const Login = () => {
   const getToken = localStorage.getItem("token");
   const dispatch = useAppDispatch();
-  const { isLoading, error, isAuthenticated, token }: ILogin = useAppSelector(
+  const { error, isAuthenticated, token }: ILogin = useAppSelector(
     (state: RootState) => state.loginState
   );
   const [message, setMessage] = useState("");
-
-  const [value, setValue] = useState({
-    email: "",
-    password: "",
-  });
 
    const schema = yup.object({
      email: yup
@@ -37,7 +32,6 @@ const Login = () => {
    const {
      handleSubmit,
      control,
-     reset,
      formState: { errors },
    } = useForm<ILoginForm>({
      resolver: yupResolver(schema),
@@ -51,7 +45,6 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated || token || getToken) {
-      // localStorage.setItem("token", token || getToken || "");
       setAuthToken(token || getToken || null);
       setTimeout(() => {
         window.location.replace("/");
@@ -83,15 +76,15 @@ const Login = () => {
     <div className="flex h-screen justify-between">
       <div className=" flex w-[60%] items-center justify-center">
         <div>
-          <div className="flex items-center justify-center font-bold gap-2">
+          <div className="flex items-center justify-center font-bold gap-2 mb-2">
             <img src={logo} alt="" />
-            <h1 className="text-2x1">SIMS PPOB</h1>
+            <h1 className="text-[24px] ">SIMS PPOB</h1>
           </div>
           <div className="flex flex-col items-center justify-center font-bold gap-1">
-            <h1 className="text-3x1">Lengkapi data untuk </h1>
-            <h1 className="text-2x1">membuat akun</h1>
+            <h1 className="text-[24px]">Masuk atau membuat akun </h1>
+            <h1 className="text-[24px]">untuk memulai</h1>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 w-[400px]">
             <Controller
               control={control}
               name="email"

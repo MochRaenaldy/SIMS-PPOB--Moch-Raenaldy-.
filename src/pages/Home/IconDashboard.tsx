@@ -2,17 +2,15 @@ import { serviceFetch } from "@/store/dashboard/sevicesSlice";
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { useEffect } from "react";
 import { bannerFetch } from "@/store/dashboard/bannerSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const IconDashboard = () => {
   const dispatch = useAppDispatch();
   const router = useNavigate()
-  const { isLoading, error, services } = useAppSelector(
+  const {services } = useAppSelector(
     (state: RootState) => state.serviceState
   );
   const {
-    isLoading: isLoadingBanner,
-    error: errorBanner,
     banner,
   } = useAppSelector((state: RootState) => state.bannerState);
 
@@ -26,11 +24,6 @@ const IconDashboard = () => {
     fetchServices();
   }, []);
 
-  // if  (isLoading) {
-  //     return <div>Loading...</div>;
-  // } else if (error) {
-  //     return <div>{error}</div>;
-  // }
   console.log(services);
 
   const handlePayment = (services: any) => {
