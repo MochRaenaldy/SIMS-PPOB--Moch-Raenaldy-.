@@ -9,7 +9,7 @@ if (tokenAuth) {
 }
 
 export const apiFetch = axios.create({
-  baseURL: import.meta.env.API_URL || "https://take-home-test-api.nutech-integrasi.com",
+  baseURL: "https://take-home-test-api.nutech-integrasi.com",
   headers: headers,
 });
 
