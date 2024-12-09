@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import profileImg from "@/assets/Profile.png";
+import profileImg from "../../assets/Profile.png";
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { UpdateImageFetch } from "@/store/profile/UploadImgProfilSlice";
 interface IProfileData {

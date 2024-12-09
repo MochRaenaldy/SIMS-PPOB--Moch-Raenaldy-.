@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import profileImage from "@/assets/Profile.png";
+import profileImage from "../../assets/Profile.png";
 import { RootState, useAppDispatch, useAppSelector } from "@/store/store";
 import { balanceFetch } from "@/store/dashboard/balanceSlice";
 import { profileFetch } from "@/store/profile/profileSlice";

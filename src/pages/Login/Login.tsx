@@ -4,7 +4,7 @@ import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
 import { useEffect, useState } from "react";
 import { authLogin, ILogin } from "@/store/auth/loginSlice";
 import { setAuthToken } from "@/utils/api";
-import logo from "@/assets/logo.png";
+import logo from "../../assets/Logo.png";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ILoginForm } from "@/types/login";
