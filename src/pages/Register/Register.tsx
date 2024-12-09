@@ -8,7 +8,7 @@ import * as yup from "yup";
 import { Controller,  useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { IRegisterForm } from "@/types/register";
-import logo from "@/assets/logo.png";
+import logo from "../../assets/Logo.png";
 
 const Login = () => {
   const getToken = localStorage.getItem("token");
